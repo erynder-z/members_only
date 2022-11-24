@@ -3,6 +3,7 @@ const router = express.Router();
 
 const login_controller = require('../controllers/loginController');
 const signup_controller = require('../controllers/signupController');
+const bouncer_controller = require('../controllers/bouncerController');
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -16,5 +17,8 @@ router.post('/log-out', login_controller.logout_post);
 // sign up
 router.get('/sign-up', signup_controller.sign_up_get);
 router.post('/sign-up', signup_controller.sign_up_post);
+
+// bouncer awaiting secret password
+router.get('/bouncer', bouncer_controller.bouncer);
 
 module.exports = router;
