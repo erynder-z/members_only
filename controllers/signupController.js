@@ -58,7 +58,13 @@ exports.sign_up_post = [
       user.password = hashedPassword;
       user.save((err) => {
         if (err) return next(err);
-        res.redirect('/bouncer');
+        // login user directly after sign-up
+        req.login(user, function (err) {
+          if (err) {
+            return next(err);
+          }
+          return res.redirect('/');
+        });
       });
     });
   },
