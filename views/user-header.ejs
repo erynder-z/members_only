@@ -1,0 +1,22 @@
+<div class="header-container">
+  <% if (user) {%>
+  <h1>WELCOME <%= user.username %></h1>
+  <form action="/log-out" method="POST">
+    <button>LOG OUT</button>
+  </form>
+  <% } else { %>
+  <h1>please log in</h1>
+  <form action="/log-in" method="POST">
+    <label for="username">Username</label>
+    <input name="username" placeholder="username" type="text" />
+    <label for="password">Password</label>
+    <input name="password" type="password" />
+    <button>Log In</button>
+  </form>
+  <% if (message) { %>
+  <p><%= message %></p>
+  <% } %>
+  <h1>don't have an account?</h1>
+  <a href="/sign-up">Create account</a>
+  <%}%>
+</div>
