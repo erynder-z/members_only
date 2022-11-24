@@ -4,12 +4,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
+const flash = require('connect-flash');
+const initializePassport = require('./passport-config');
 
 /* const compression = require('compression');
 const helmet = require('helmet'); */
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const clubhouseRouter = require('./routes/clubhouse');
 
 const app = express();
 
@@ -33,8 +37,27 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 /* app.use(compression()); */
 
+initializePassport(passport);
+
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
+app.use(
+  session({
+    secret: `${env.SECRET}`,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+app.use(flash());
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/clubhouse', clubhouseRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
