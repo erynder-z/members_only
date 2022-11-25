@@ -9,6 +9,15 @@
     <div class="bouncer-container">
       <h1>Bouncer</h1>
       <p>enter password to unlock</p>
+      <form action="/clubhouse/bouncer/become-member" method="POST">
+        <label for="secretPassword">What's the secret password?</label>
+        <input name="secretPassword" type="password" />
+        <button>Submit</button>
+      </form>
+      <% if (typeof errors != "undefined") { %> <% for(const error of errors)
+      {%>
+      <div class="error-msg"><%=error.msg %></div>
+      <% } %> <% } %>
     </div>
   </body>
 </html>

@@ -5,7 +5,7 @@
     <button>LOG OUT</button>
   </form>
   <% if (user.membership_status === "NEW") { %>
-  <a href="/bouncer">Become a Member</a>
+  <a href="/clubhouse/bouncer">Become a Member</a>
   <% } %> <% } else { %>
   <h1>please log in</h1>
   <form action="/log-in" method="POST">
