@@ -1,5 +1,87 @@
-$darkRed: rgb(150, 35, 35);
+$headerBackground: rgb(36, 125, 119);
+$welcomeBackground: rgb(231, 160, 160);
+$signupBackground: rgb(255, 187, 0);
+$bouncerBackground: rgb(97, 155, 255);
 
-h1 {
-  color: $darkRed;
+$headerHeight: 20vh;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+@mixin flex-container-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-container-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-container {
+  @include flex-container-column-center();
+  height: $headerHeight;
+  padding: 1rem;
+  background-color: $headerBackground;
+}
+
+.login-container {
+  @include flex-container-left();
+  width: 100%;
+  gap: 2rem;
+}
+
+.create_account-container {
+  @include flex-container-left();
+  width: 100%;
+  gap: 2rem;
+}
+
+.userInfo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 2rem;
+}
+
+.welcome-container {
+  @include flex-container-column-center();
+  height: calc(100vh - $headerHeight);
+  background-color: $welcomeBackground;
+}
+
+.signup-container {
+  @include flex-container-column-center();
+  height: 100vh;
+  background-color: $signupBackground;
+}
+
+.signup-form {
+  @include flex-container-column-center();
+  height: 66%;
+  gap: 1rem;
+}
+
+.bouncer-container {
+  @include flex-container-column-center();
+  height: 100vh;
+  background-color: $bouncerBackground;
+}
+
+.bouncer-form {
+  @include flex-container-column-center();
+  height: 66%;
+  gap: 1rem;
 }

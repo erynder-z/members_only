@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="/stylesheets/main.css" />
-  </head>
+  <%- include("head") %>
   <body>
-    <%- include('user-header') %>
     <div class="bouncer-container">
       <h1>Bouncer</h1>
       <p>enter password to unlock</p>
-      <form action="/clubhouse/bouncer/become-member" method="POST">
+      <form
+        class="bouncer-form"
+        action="/clubhouse/bouncer/become-member"
+        method="POST"
+      >
         <label for="secretPassword">What's the secret password?</label>
         <input name="secretPassword" type="password" />
         <button>Submit</button>

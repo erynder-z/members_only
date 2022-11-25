@@ -1,24 +1,35 @@
 <div class="header-container">
   <% if (user) {%>
-  <h1>WELCOME <%= user.username %></h1>
-  <form action="/log-out" method="POST">
-    <button>LOG OUT</button>
-  </form>
-  <% if (user.membership_status === "NEW") { %>
-  <a href="/clubhouse/bouncer">Become a Member</a>
-  <% } %> <% } else { %>
-  <h1>please log in</h1>
-  <form action="/log-in" method="POST">
-    <label for="username">Username</label>
-    <input name="username" placeholder="username" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <button>Log In</button>
-  </form>
-  <% if (message) { %>
-  <p><%= message %></p>
+  <div class="userInfo-container">
+    <h1>WELCOME <%= user.username %></h1>
+    <div class="user-options-container">
+      <% if (user.membership_status === "NEW") { %>
+      <a href="/clubhouse/bouncer">Become a Member</a>
+      <% } %>
+    </div>
+    <form action="/log-out" method="POST">
+      <button>LOG OUT</button>
+    </form>
+  </div>
+  <% } else { %>
+  <div class="login-container">
+    <h1>please log in</h1>
+    <form action="/log-in" method="POST">
+      <label for="username">Username</label>
+      <input name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input name="password" type="password" />
+      <button>Log In</button>
+    </form>
+  </div>
+  <div class="error_message-container">
+    <% if (message) { %>
+    <p><%= message %></p>
+  </div>
   <% } %>
-  <h1>don't have an account?</h1>
-  <a href="/sign-up">Create account</a>
+  <div class="create_account-container">
+    <h1>don't have an account?</h1>
+    <a href="/sign-up">Create account</a>
+  </div>
   <%}%>
 </div>
