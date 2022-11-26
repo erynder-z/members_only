@@ -5,6 +5,8 @@
     <div class="user-options-container">
       <% if (user.membership_status === "NEW") { %>
       <a href="/clubhouse/bouncer">Become a Member</a>
+      <% } else { %>
+      <a href="/clubhouse/create_message">Create Message</a>
       <% } %>
     </div>
     <form action="/log-out" method="POST">
