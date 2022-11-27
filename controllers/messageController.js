@@ -14,7 +14,7 @@ exports.message_detail_get = (req, res) => {
         return next(err);
       }
       if (results.msg == null) {
-        const err = new Error(';essage not found');
+        const err = new Error('Message not found');
         err.status = 404;
         return next(err);
       }
@@ -27,7 +27,11 @@ exports.message_detail_get = (req, res) => {
 };
 
 exports.create_message_get = (req, res) => {
-  res.render('create_message', { user: req.user });
+  if (req.user) {
+    res.render('create_message', { user: req.user });
+  } else {
+    res.render('unauthorized_user');
+  }
 };
 
 exports.create_message_post = [
