@@ -2,6 +2,10 @@ $headerBackground: rgb(36, 125, 119);
 $welcomeBackground: rgb(231, 160, 160);
 $signupBackground: rgb(255, 187, 0);
 $bouncerBackground: rgb(97, 155, 255);
+$createMessageBackground: rgb(177, 88, 255);
+$inputFormColor: rgb(17, 234, 183);
+$buttonColor: rgb(26, 175, 83);
+$cardTop: rgb(0, 0, 0);
 
 $headerHeight: 20vh;
 
@@ -84,4 +88,91 @@ $headerHeight: 20vh;
   @include flex-container-column-center();
   height: 66%;
   gap: 1rem;
+}
+
+.create_message-container {
+  @include flex-container-column-center();
+  height: calc(100vh - $headerHeight);
+  background-color: $createMessageBackground;
+}
+
+.create_message-form {
+  @include flex-container-column-center();
+  height: 66%;
+  width: 33%;
+  gap: 1rem;
+}
+
+.create_message-form input {
+  all: initial;
+  width: 100%;
+  height: 2rem;
+  border: solid 4px white;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.create_message-form textarea {
+  all: initial;
+  width: 100%;
+
+  border: solid 4px white;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.create_message-form input:focus,
+.create_message-form textarea:focus {
+  border: solid 4px $inputFormColor;
+  background-color: $inputFormColor;
+}
+
+.submit_message-btn {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  outline: solid 4px $buttonColor;
+  background-color: $buttonColor;
+  font-size: 1.5rem;
+}
+
+.submit_message-btn:hover {
+  outline: solid 4px darken($buttonColor, $amount: 3%);
+  background-color: darken($buttonColor, $amount: 3%);
+}
+
+.message_board-container ul {
+  list-style: none;
+}
+
+.message_card {
+  margin: 10px;
+  width: 33vw;
+  float: left;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.15s all ease;
+}
+
+.card-top {
+  background-color: $cardTop;
+  width: 100%;
+  height: 10px;
+  padding: 0;
+  margin: 0;
+}
+.card-content {
+  padding: 15px 20px;
+}
+.card-title {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0 0 10px;
+  letter-spacing: -0.075rem;
+}
+.card-body {
+  color: #888;
+  padding: 0;
+  margin: 0;
 }

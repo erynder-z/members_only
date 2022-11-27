@@ -87,3 +87,98 @@
   height: 66%;
   gap: 1rem;
 }
+
+.create_message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: rgb(177, 88, 255);
+}
+
+.create_message-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 66%;
+  width: 33%;
+  gap: 1rem;
+}
+
+.create_message-form input {
+  all: initial;
+  width: 100%;
+  height: 2rem;
+  border: solid 4px white;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.create_message-form textarea {
+  all: initial;
+  width: 100%;
+  border: solid 4px white;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.create_message-form input:focus,
+.create_message-form textarea:focus {
+  border: solid 4px rgb(17, 234, 183);
+  background-color: rgb(17, 234, 183);
+}
+
+.submit_message-btn {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  outline: solid 4px rgb(26, 175, 83);
+  background-color: rgb(26, 175, 83);
+  font-size: 1.5rem;
+}
+
+.submit_message-btn:hover {
+  outline: solid 4px #18a24d;
+  background-color: #18a24d;
+}
+
+.message_board-container ul {
+  list-style: none;
+}
+
+.message_card {
+  margin: 10px;
+  width: 33vw;
+  float: left;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.15s all ease;
+}
+
+.card-top {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.card-content {
+  padding: 15px 20px;
+}
+
+.card-title {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0 0 10px;
+  letter-spacing: -0.075rem;
+}
+
+.card-body {
+  color: #888;
+  padding: 0;
+  margin: 0;
+}
