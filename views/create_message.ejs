@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <%- include("head") %>
+  <body>
+    <div class="app-container">
+      <%- include('user-header') %>
+      <div class="create_message-container">
+        <h1>Create Message</h1>
+        <!-- prettier-ignore -->
+        <form class="create_message-form" action="" method="POST">
+          <label for="title">Title</label>
+          <input name="title" type="text" placeholder="Message title" required="true" 
+          value="<% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_title %><% } %>" />
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Some text"
+            required="true"
+            rows="4"
+            cols="50"
+          ><% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_text%><% } %></textarea>
+          <button class="submit_message-btn">Submit</button>
+        </form>
+        <% if (typeof errors != "undefined") { %> <% for(const error of errors)
+        {%>
+        <div class="error-msg"><%=error.msg %></div>
+        <% } %> <% } %>
+      </div>
+    </div>
+  </body>
+</html>
