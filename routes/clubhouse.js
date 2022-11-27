@@ -22,6 +22,4 @@ router.get('/create_message', message_controller.create_message_get);
 
 router.post('/create_message', message_controller.create_message_post);
 
-router.get('/message/:id', message_controller.message_detail_get);
-
 module.exports = router;

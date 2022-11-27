@@ -2,30 +2,6 @@ const { body, validationResult } = require('express-validator');
 const async = require('async');
 const Message = require('../models/message');
 
-exports.message_detail_get = (req, res) => {
-  async.parallel(
-    {
-      msg(callback) {
-        Message.findById(req.params.id).exec(callback);
-      },
-    },
-    (err, results) => {
-      if (err) {
-        return next(err);
-      }
-      if (results.msg == null) {
-        const err = new Error('Message not found');
-        err.status = 404;
-        return next(err);
-      }
-      res.render('message_detail', {
-        user: req.user,
-        msg: results.msg,
-      });
-    }
-  );
-};
-
 exports.message_list_get = (req, res) => {
   Message.find({})
     .sort({ msg_timestamp: 1 })
