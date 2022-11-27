@@ -16,6 +16,8 @@ router.post('/bouncer/become-member', bouncer_controller.become_member);
 
 router.get('/user/:id', user_controller.user_page);
 
+router.get('/message_board', message_controller.message_list_get);
+
 router.get('/create_message', message_controller.create_message_get);
 
 router.post('/create_message', message_controller.create_message_post);

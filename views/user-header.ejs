@@ -8,6 +8,7 @@
       <% } else { %>
       <a href="/clubhouse/create_message">Create Message</a>
       <% } %>
+      <a href="/clubhouse/message_board">All Messages</a>
     </div>
     <form action="/log-out" method="POST">
       <button>LOG OUT</button>
@@ -25,10 +26,10 @@
     </form>
   </div>
   <div class="error_message-container">
-    <% if (message) { %>
+    <% if (typeof message != "undefined") { %>
     <p><%= message %></p>
+    <% } %>
   </div>
-  <% } %>
   <div class="create_account-container">
     <h1>don't have an account?</h1>
     <a href="/sign-up">Create account</a>

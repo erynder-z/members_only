@@ -26,6 +26,21 @@ exports.message_detail_get = (req, res) => {
   );
 };
 
+exports.message_list_get = (req, res) => {
+  Message.find({})
+    .sort({ msg_timestamp: 1 })
+    .exec(function (err, list_messages) {
+      if (err) {
+        return next(err);
+      }
+
+      res.render('message_board', {
+        user: req.user,
+        message_list: list_messages,
+      });
+    });
+};
+
 exports.create_message_get = (req, res) => {
   if (req.user) {
     res.render('create_message', { user: req.user });

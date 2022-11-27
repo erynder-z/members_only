@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <%- include("head") %>
+  <body>
+    <div class="app-container">
+      <%- include('user-header') %>
+      <div class="message_board-container">
+        <h1>All messages</h1>
+        <ul>
+          <% if(message_list.length > 0){ %> <% for(const message of
+          message_list) {%>
+          <li><%- include('message_card', {message}) %></li>
+          <% } %> <% } else{ %>
+          <p>There are no messages</p>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
