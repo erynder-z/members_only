@@ -10,5 +10,39 @@
     <% } %>
     <h2 class="card-title"><%=message.msg_title%></h2>
     <div class="card-body"><%=message.msg_text%></div>
+    <div class="card-options-container">
+      <form action="<%= "/clubhouse/message/"+ message._id + "/very_satisfied" %>" method="POST">
+        <button class="card-option">
+          <span class="material-symbols-outlined">
+            sentiment_very_satisfied </span
+          ><%=message.msg_reactions.very_satisfied %>
+        </button>
+      </form>
+      <form action="<%= "/clubhouse/message/"+ message._id + "/satisfied" %>" method="POST">
+      <button class="card-option">
+        <span class="material-symbols-outlined"> sentiment_satisfied </span
+        ><%=message.msg_reactions.satisfied %>
+      </button>
+    </form>
+    <form action="<%= "/clubhouse/message/"+ message._id + "/neutral" %>" method="POST">
+      <button class="card-option">
+        <span class="material-symbols-outlined"> sentiment_neutral </span
+        ><%=message.msg_reactions.neutral %>
+      </button>
+    </form>
+    <form action="<%= "/clubhouse/message/"+ message._id + "/dissatisfied" %>" method="POST">
+      <button class="card-option">
+        <span class="material-symbols-outlined"> sentiment_dissatisfied </span
+        ><%=message.msg_reactions.dissatisfied %>
+      </button>
+    </form> 
+    <form action="<%= "/clubhouse/message/"+ message._id + "/very_dissatisfied" %>" method="POST"> 
+      <button class="card-option">
+        <span class="material-symbols-outlined">
+          sentiment_very_dissatisfied </span
+        ><%=message.msg_reactions.very_dissatisfied %>
+      </button>
+    </form> 
+    </div>
   </div>
 </div>

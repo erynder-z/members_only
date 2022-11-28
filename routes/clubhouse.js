@@ -22,4 +22,23 @@ router.get('/create_message', message_controller.create_message_get);
 
 router.post('/create_message', message_controller.create_message_post);
 
+router.post(
+  '/message/:id/very_satisfied',
+  message_controller.option_very_satisfied_post
+);
+
+router.post('/message/:id/satisfied', message_controller.option_satisfied_post);
+
+router.post('/message/:id/neutral', message_controller.option_neutral_post);
+
+router.post(
+  '/message/:id/dissatisfied',
+  message_controller.option_dissatisfied_post
+);
+
+router.post(
+  '/message/:id/very_dissatisfied',
+  message_controller.option_very_dissatisfied_post
+);
+
 module.exports = router;

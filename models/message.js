@@ -8,6 +8,33 @@ const MessageSchema = new Schema({
   msg_text: { type: String, required: true },
   msg_timestamp: { type: Date, required: true, default: Date.now },
   msg_author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  msg_reactions: {
+    very_satisfied: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    satisfied: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    neutral: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    dissatisfied: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    very_dissatisfied: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+  },
 });
 
 // Virtual for message's URL
