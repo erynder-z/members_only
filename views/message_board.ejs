@@ -9,7 +9,7 @@
         <ul>
           <% if(message_list.length > 0){ %> <% for(const message of
           message_list) {%>
-          <li><%- include('message_card', {message}) %></li>
+          <li><%- include('message_card', {user, message}) %></li>
           <% } %> <% } else{ %>
           <p>There are no messages</p>
           <% } %>

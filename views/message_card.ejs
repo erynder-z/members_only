@@ -1,7 +1,13 @@
 <div class="message_card">
   <div class="card-top"></div>
   <div class="card-content">
+    <% if (user?.membership_status === "MEMBER") { %>
     <p class="card-timestamp"><%=message.timestamp_formatted %></p>
+    <p class="card-author"><%=message.msg_author.username%></p>
+    <% } else { %>
+    <p class="card-timestamp">Timestamp hidden</p>
+    <p class="card-author">Author hidden</p>
+    <% } %>
     <h2 class="card-title"><%=message.msg_title%></h2>
     <div class="card-body"><%=message.msg_text%></div>
   </div>

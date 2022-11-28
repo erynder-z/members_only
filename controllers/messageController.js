@@ -2,8 +2,9 @@ const { body, validationResult } = require('express-validator');
 const async = require('async');
 const Message = require('../models/message');
 
-exports.message_list_get = (req, res) => {
+exports.message_list_get = (req, res, next) => {
   Message.find({})
+    .populate('msg_author')
     .sort({ msg_timestamp: 1 })
     .exec(function (err, list_messages) {
       if (err) {
@@ -58,7 +59,7 @@ exports.create_message_post = [
         return next(err);
       }
 
-      res.redirect(msg.url);
+      res.redirect('/');
     });
   },
 ];
