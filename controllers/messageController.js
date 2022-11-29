@@ -63,3 +63,228 @@ exports.create_message_post = [
     });
   },
 ];
+
+exports.option_very_satisfied_post = (req, res) => {
+  if (req.user) {
+    async.parallel(
+      {
+        message(callback) {
+          Message.findById(req.params.id).exec(callback);
+        },
+      },
+      (err, results) => {
+        if (err) {
+          return next(err);
+        }
+        if (results.message == null) {
+          const err = new Error('Message not found');
+          err.status = 404;
+          return next(err);
+        }
+        // only allow reacting if user hasn't already reacted to message
+        if (
+          results.message.msg_reactions.reacted_users.find((el) =>
+            el._id.equals(req.user._id)
+          )
+        ) {
+          res.redirect('/clubhouse/message_board');
+        } else {
+          Message.findByIdAndUpdate(
+            req.params.id,
+            {
+              $inc: { 'msg_reactions.very_satisfied': 1 },
+              $addToSet: { 'msg_reactions.reacted_users': req.user._id },
+            },
+            function (err, result) {
+              if (err) {
+                console.log(err);
+              } else {
+                res.redirect('/clubhouse/message_board');
+              }
+            }
+          );
+        }
+      }
+    );
+  }
+};
+
+exports.option_satisfied_post = (req, res) => {
+  if (req.user) {
+    async.parallel(
+      {
+        message(callback) {
+          Message.findById(req.params.id).exec(callback);
+        },
+      },
+      (err, results) => {
+        if (err) {
+          return next(err);
+        }
+        if (results.message == null) {
+          const err = new Error('Message not found');
+          err.status = 404;
+          return next(err);
+        }
+
+        if (
+          results.message.msg_reactions.reacted_users.find((el) =>
+            el._id.equals(req.user._id)
+          )
+        ) {
+          res.redirect('/clubhouse/message_board');
+        } else {
+          Message.findByIdAndUpdate(
+            req.params.id,
+            {
+              $inc: { 'msg_reactions.satisfied': 1 },
+              $addToSet: { 'msg_reactions.reacted_users': req.user._id },
+            },
+            function (err, result) {
+              if (err) {
+                console.log(err);
+              } else {
+                res.redirect('/clubhouse/message_board');
+              }
+            }
+          );
+        }
+      }
+    );
+  }
+};
+
+exports.option_neutral_post = (req, res) => {
+  if (req.user) {
+    async.parallel(
+      {
+        message(callback) {
+          Message.findById(req.params.id).exec(callback);
+        },
+      },
+      (err, results) => {
+        if (err) {
+          return next(err);
+        }
+        if (results.message == null) {
+          const err = new Error('Message not found');
+          err.status = 404;
+          return next(err);
+        }
+
+        if (
+          results.message.msg_reactions.reacted_users.find((el) =>
+            el._id.equals(req.user._id)
+          )
+        ) {
+          res.redirect('/clubhouse/message_board');
+        } else {
+          Message.findByIdAndUpdate(
+            req.params.id,
+            {
+              $inc: { 'msg_reactions.neutral': 1 },
+              $addToSet: { 'msg_reactions.reacted_users': req.user._id },
+            },
+            function (err, result) {
+              if (err) {
+                console.log(err);
+              } else {
+                res.redirect('/clubhouse/message_board');
+              }
+            }
+          );
+        }
+      }
+    );
+  }
+};
+
+exports.option_dissatisfied_post = (req, res) => {
+  if (req.user) {
+    async.parallel(
+      {
+        message(callback) {
+          Message.findById(req.params.id).exec(callback);
+        },
+      },
+      (err, results) => {
+        if (err) {
+          return next(err);
+        }
+        if (results.message == null) {
+          const err = new Error('Message not found');
+          err.status = 404;
+          return next(err);
+        }
+
+        if (
+          results.message.msg_reactions.reacted_users.find((el) =>
+            el._id.equals(req.user._id)
+          )
+        ) {
+          res.redirect('/clubhouse/message_board');
+        } else {
+          Message.findByIdAndUpdate(
+            req.params.id,
+            {
+              $inc: { 'msg_reactions.dissatisfied': 1 },
+              $addToSet: { 'msg_reactions.reacted_users': req.user._id },
+            },
+            function (err, result) {
+              if (err) {
+                console.log(err);
+              } else {
+                res.redirect('/clubhouse/message_board');
+              }
+            }
+          );
+        }
+      }
+    );
+  }
+};
+
+exports.option_very_dissatisfied_post = (req, res) => {
+  if (req.user) {
+    async.parallel(
+      {
+        message(callback) {
+          Message.findById(req.params.id).exec(callback);
+        },
+      },
+      (err, results) => {
+        if (err) {
+          return next(err);
+        }
+        if (results.message == null) {
+          const err = new Error('Message not found');
+          err.status = 404;
+          return next(err);
+        }
+
+        if (
+          results.message.msg_reactions.reacted_users.find((el) =>
+            el._id.equals(req.user._id)
+          )
+        ) {
+          res.redirect('/clubhouse/message_board');
+        } else {
+          Message.findByIdAndUpdate(
+            req.params.id,
+            {
+              $inc: { 'msg_reactions.very_dissatisfied': 1 },
+              $addToSet: { 'msg_reactions.reacted_users': req.user._id },
+            },
+            function (err, result) {
+              if (err) {
+                console.log(err);
+              } else {
+                res.redirect('/clubhouse/message_board');
+              }
+            }
+          );
+        }
+      }
+    );
+  }
+};

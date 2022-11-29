@@ -9,6 +9,7 @@ const MessageSchema = new Schema({
   msg_timestamp: { type: Date, required: true, default: Date.now },
   msg_author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   msg_reactions: {
+    reacted_users: [Schema.Types.ObjectId],
     very_satisfied: {
       type: Number,
       required: true,
