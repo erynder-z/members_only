@@ -1,3 +1,4 @@
+<% const userLink = `/clubhouse/user/${user?._id}` %>
 <div class="header-container">
   <% if (user) {%>
   <div class="userInfo-container">
@@ -9,6 +10,7 @@
       <a href="/clubhouse/create_message">Create Message</a>
       <% } %>
       <a href="/clubhouse/message_board">All Messages</a>
+      <a href="<%=userLink%>">My Page</a>
     </div>
     <form action="/log-out" method="POST">
       <button>LOG OUT</button>
