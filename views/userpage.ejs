@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <%- include("head") %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+  />
+  <body>
+    <div class="app-container">
+      <%- include('user-header') %>
+      <div class="userpage-container">
+        <div class="user_info-container">
+          <h1><%=shown_user.username %></h1>
+          <p><%=shown_user.first_name%> <%=shown_user.last_name%></p>
+          <p>joined: <%=shown_user.joined_formatted %></p>
+        </div>
+        <ul>
+          <% if(users_messages.length > 0){ %> <% for(const users_message of
+          users_messages) {%>
+          <li>
+            <%- include('message_card', {user, message: users_message}) %>
+          </li>
+          <% } %> <% } else{ %>
+          <p>User has no messages</p>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

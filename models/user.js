@@ -1,3 +1,4 @@
+const { DateTime } = require('luxon');
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -17,9 +18,12 @@ const UserSchema = new Schema({
   admin: { type: Boolean, required: true, default: false },
 });
 
-// Virtual for users's URL
 UserSchema.virtual('url').get(function () {
   return `/clubhouse/user/${this._id}`;
+});
+
+UserSchema.virtual('joined_formatted').get(function () {
+  return DateTime.fromJSDate(this.joined).toLocaleString(DateTime.DATE_MED);
 });
 
 // Export model
