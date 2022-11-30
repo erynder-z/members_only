@@ -1,9 +1,12 @@
+<% const userLink = `user/ + ${message.msg_author._id}` %>
 <div class="message_card">
   <div class="card-top"></div>
   <div class="card-content">
     <% if (user?.membership_status === "MEMBER") { %>
     <p class="card-timestamp"><%=message.timestamp_formatted %></p>
-    <p class="card-author"><%=message.msg_author.username%></p>
+    <p class="card-author">
+      <a href="<%= userLink %> "> <%=message.msg_author.username%> </a>
+    </p>
     <% } else { %>
     <p class="card-timestamp">Timestamp hidden</p>
     <p class="card-author">Author hidden</p>
