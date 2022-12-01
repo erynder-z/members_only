@@ -1,3 +1,6 @@
+<% const isValidUser = () => { if((shown_user.id == user._id) &&
+user.membership_status === "MEMBER" && !user.admin) { return true } } %>
+
 <!DOCTYPE html>
 <html>
   <%- include("head") %>
@@ -13,6 +16,12 @@
           <h1><%=shown_user.username %></h1>
           <p><%=shown_user.first_name%> <%=shown_user.last_name%></p>
           <p>joined: <%=shown_user.joined_formatted %></p>
+          <p>status: <%= shown_user.membership_status %></p>
+          <p>admin: <%= shown_user.admin %></p>
+
+          <% if(isValidUser()) { %>
+          <a href="/clubhouse/admin">become admin</a>
+          <% } %>
         </div>
         <ul>
           <% if(users_messages.length > 0){ %> <% for(const users_message of

@@ -1,3 +1,5 @@
+const { body, validationResult } = require('express-validator');
+const env = require('dotenv').config().parsed;
 const async = require('async');
 const User = require('../models/user');
 const Message = require('../models/message');
@@ -34,3 +36,41 @@ exports.user_page = (req, res) => {
     res.render('unauthorized_user');
   }
 };
+
+exports.become_admin_get = (req, res) => {
+  if (req.user) {
+    res.render('admin', {
+      user: req.user,
+    });
+  }
+};
+
+exports.become_admin_post = [
+  body('adminPassword')
+    .custom((value, { req }) => {
+      if (value != `${env.ADMIN_PASSWORD}`) {
+        throw new Error('Wrong password');
+      }
+      return true;
+    })
+    .escape(),
+
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render('admin', {
+        user: req.user,
+        errors: errors.array(),
+      });
+      return;
+    }
+
+    User.findByIdAndUpdate(req.user._id, { admin: true }, (err, result) => {
+      if (err) {
+        return next(err);
+      }
+      res.redirect(result.url);
+    });
+  },
+];

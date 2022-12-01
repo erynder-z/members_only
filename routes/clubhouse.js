@@ -12,6 +12,10 @@ router.get('/', login_controller.index);
 // bouncer awaiting secret password
 router.get('/bouncer', bouncer_controller.bouncer);
 
+router.get('/admin', user_controller.become_admin_get);
+
+router.post('/admin', user_controller.become_admin_post);
+
 router.post('/bouncer/become-member', bouncer_controller.become_member);
 
 router.get('/user/:id', user_controller.user_page);

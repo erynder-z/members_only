@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <%- include("head") %>
+  <body>
+    <div class="admin-container">
+      <h1>Become admin</h1>
+      <form class="admin-form" action="/clubhouse/admin" method="POST">
+        <label for="adminPassword">Enter admin password</label>
+        <input name="adminPassword" type="password" />
+        <button>Submit</button>
+      </form>
+      <% if (typeof errors != "undefined") { %> <% for(const error of errors)
+      {%>
+      <div class="error-msg"><%=error.msg %></div>
+      <% } %> <% } %>
+    </div>
+  </body>
+</html>
