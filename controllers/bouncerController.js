@@ -9,7 +9,7 @@ exports.bouncer = (req, res) => {
 exports.become_member = [
   body('secretPassword')
     .custom((value, { req }) => {
-      if (value !== `${env.MEMBER_PASSWORD}`) {
+      if (value != `${env.MEMBER_PASSWORD}`) {
         throw new Error('Wrong password');
       }
       // Indicates the success of this synchronous custom validator
@@ -29,7 +29,7 @@ exports.become_member = [
     }
 
     User.findByIdAndUpdate(
-      req.user.id,
+      req.user._id,
       { membership_status: 'MEMBER' },
       (err, result) => {
         if (err) {
