@@ -1,5 +1,8 @@
 <% const isValidUser = () => { if((shown_user.id == user._id) &&
-user.membership_status === "MEMBER" && !user.admin) { return true } } %>
+user.membership_status === "MEMBER" && !user.admin) { return true } } %> <%
+const userColor = shown_user?.favorite_color %> <% const style =
+`background-color:${userColor}` %> <%const userInitial =
+shown_user?.username.charAt(0) %>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +16,12 @@ user.membership_status === "MEMBER" && !user.admin) { return true } } %>
       <%- include('user-header') %>
       <div class="userpage-container">
         <div class="user_info-container">
-          <h1><%=shown_user.username %></h1>
+          <div class="userpage_username">
+            <div class="user_avatar" style="<%=style %>">
+              <span><%=userInitial %></span>
+            </div>
+            <%=shown_user.username %>
+          </div>
           <p><%=shown_user.first_name%> <%=shown_user.last_name%></p>
           <p>joined: <%=shown_user.joined_formatted %></p>
           <p>status: <%= shown_user.membership_status %></p>

@@ -1,42 +1,49 @@
-<% const userLink = `user/${message.msg_author._id}` %>
+<% const userLink = `user/${message.msg_author._id}` %> <% const userColor =
+message.msg_author.favorite_color %> <% const style =
+`background-color:${userColor}` %> <%const userInitial =
+message.msg_author.username.charAt(0) %>
+
 <div class="message_card">
-  <div class="card-top"></div>
   <div class="card-content">
-    <% if (user?.membership_status === "MEMBER") { %>
-    <p class="card-timestamp"><%=message.timestamp_formatted %></p>
-    <p class="card-author">
-      <a href="<%=userLink%>"> <%=message.msg_author.username%> </a>
-    </p>
-    <% } else { %>
-    <p class="card-timestamp">Timestamp hidden</p>
-    <p class="card-author">Author hidden</p>
-    <% } %>
+    <div class="card-top">
+      <% if (user?.membership_status === "MEMBER") { %>
+
+      <div class="card-author">
+        <div class="user_avatar" style="<%=style %>">
+          <span><%=userInitial %></span>
+        </div>
+        <a href="<%=userLink%>"> <%=message.msg_author.username%> </a>
+      </div>
+      <p class="card-timestamp"><%=message.timestamp_formatted %></p>
+      <% } else { %>
+      <p class="card-timestamp">Timestamp hidden</p>
+      <p class="card-author">Author hidden</p>
+      <% } %>
+    </div>
     <h2 class="card-title"><%=message.msg_title%></h2>
     <div class="card-body"><%=message.msg_text%></div>
-    <% if (user?.membership_status === "MEMBER") { %>
-    <div class="card-options-container">
-      <form method="post">
-        <button class="card-option" formaction="<%= "/clubhouse/message/"+
-        message._id + "/very_satisfied" %>">
-        <span class="material-symbols-outlined"> sentiment_very_satisfied </span
-        ><%=message.msg_reactions.very_satisfied %> <button class="card-option"
-        formaction="<%= "/clubhouse/message/"+ message._id + "/satisfied" %>">
-        <span class="material-symbols-outlined"> sentiment_satisfied </span
-        ><%=message.msg_reactions.satisfied %> <button class="card-option"
-        formaction="<%= "/clubhouse/message/"+ message._id + "/neutral" %>" >
-        <span class="material-symbols-outlined"> sentiment_neutral </span
-        ><%=message.msg_reactions.neutral %> <button class="card-option"
-        formaction="<%= "/clubhouse/message/"+ message._id + "/dissatisfied"%>"
-        >
-        <span class="material-symbols-outlined"> sentiment_dissatisfied </span
-        ><%=message.msg_reactions.dissatisfied %> <button class="card-option"
-        formaction="<%= "/clubhouse/message/"+ message._id +
-        "/very_dissatisfied" %>" >
-        <span class="material-symbols-outlined">
-          sentiment_very_dissatisfied </span
-        ><%=message.msg_reactions.very_dissatisfied %>
-      </form>
-    </div>
-    <% } %>
+    <% if (user?.membership_status === "MEMBER") { %> <% } %>
+  </div>
+  <div class="card-options-container">
+    <form method="post">
+      <button class="card-option" formaction="<%= "/clubhouse/message/"+
+      message._id + "/very_satisfied" %>">
+      <span class="material-symbols-outlined"> sentiment_very_satisfied </span
+      ><%=message.msg_reactions.very_satisfied %> <button class="card-option"
+      formaction="<%= "/clubhouse/message/"+ message._id + "/satisfied" %>">
+      <span class="material-symbols-outlined"> sentiment_satisfied </span
+      ><%=message.msg_reactions.satisfied %> <button class="card-option"
+      formaction="<%= "/clubhouse/message/"+ message._id + "/neutral" %>" >
+      <span class="material-symbols-outlined"> sentiment_neutral </span
+      ><%=message.msg_reactions.neutral %> <button class="card-option"
+      formaction="<%= "/clubhouse/message/"+ message._id + "/dissatisfied"%>" >
+      <span class="material-symbols-outlined"> sentiment_dissatisfied </span
+      ><%=message.msg_reactions.dissatisfied %> <button class="card-option"
+      formaction="<%= "/clubhouse/message/"+ message._id + "/very_dissatisfied"
+      %>" >
+      <span class="material-symbols-outlined">
+        sentiment_very_dissatisfied </span
+      ><%=message.msg_reactions.very_dissatisfied %>
+    </form>
   </div>
 </div>
