@@ -1,8 +1,19 @@
-<% const userLink = `/clubhouse/user/${user?._id}` %>
+<% const userLink = `/clubhouse/user/${user?._id}` %> <% const userColor =
+user?.favorite_color %> <% const style = `background-color:${userColor}` %>
+<%const userInitial = user?.username.charAt(0) %>
+
 <div class="header-container">
   <% if (user) {%>
   <div class="userInfo-container">
-    <h1>WELCOME <%= user.username %></h1>
+    <h1>
+      WELCOME,
+      <div class="user-header-container">
+        <div class="user_avatar" style="<%=style %>">
+          <span><%=userInitial %></span>
+        </div>
+        <%= user.username %>
+      </div>
+    </h1>
     <div class="user-options-container">
       <% if (user.membership_status === "NEW") { %>
       <a href="/clubhouse/bouncer">Become a Member</a>

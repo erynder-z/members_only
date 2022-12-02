@@ -29,6 +29,10 @@ exports.sign_up_post = [
   body('confirmPassword', 'Passwords do not match.').custom(
     (value, { req }) => value === req.body.password
   ),
+  body('favcolor', 'Must be a valid hexadecimal color code.')
+    .trim()
+    .isHexColor()
+    .escape(),
 
   (req, res, next) => {
     const errors = validationResult(req);
@@ -38,6 +42,7 @@ exports.sign_up_post = [
       last_name: req.body.last_name,
       username: req.body.username,
       password: req.body.password,
+      favorite_color: req.body.favcolor,
     });
 
     if (!errors.isEmpty()) {
