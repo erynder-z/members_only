@@ -6,7 +6,7 @@ user?.favorite_color %> <% const style = `background-color:${userColor}` %>
   <% if (user) {%>
   <div class="userInfo-container">
     <h1>
-      WELCOME,
+      Welcome,
       <div class="user-header-container">
         <div class="user_avatar" style="<%=style %>">
           <span><%=userInitial %></span>
@@ -29,12 +29,10 @@ user?.favorite_color %> <% const style = `background-color:${userColor}` %>
   </div>
   <% } else { %>
   <div class="login-container">
-    <h1>please log in</h1>
-    <form action="/log-in" method="POST">
-      <label for="username">Username</label>
-      <input name="username" placeholder="username" type="text" />
-      <label for="password">Password</label>
-      <input name="password" type="password" />
+    <h1>please log in:</h1>
+    <form class="login-form" action="/log-in" method="POST">
+      <input name="username" placeholder="enter username" type="text" />
+      <input name="password" placeholder="enter password" type="password" />
       <button>Log In</button>
     </form>
   </div>
@@ -45,7 +43,7 @@ user?.favorite_color %> <% const style = `background-color:${userColor}` %>
   </div>
   <div class="create_account-container">
     <h1>don't have an account?</h1>
-    <a href="/sign-up">Create account</a>
+    <a class="signUp-button" href="/sign-up">Create account</a>
   </div>
   <%}%>
 </div>

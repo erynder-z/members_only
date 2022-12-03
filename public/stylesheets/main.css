@@ -56,6 +56,76 @@ body {
   gap: 2rem;
 }
 
+.login-form,
+.signup-form {
+  display: flex;
+  height: 2.5rem;
+  gap: 1rem;
+}
+
+.login-form input,
+.signup-form input {
+  all: unset;
+  padding: 0.25rem;
+  border: solid 2px #fcf8e8;
+  color: #5e5e8f;
+}
+
+.login-form input:focus,
+.signup-form input:focus {
+  background-color: rgba(4, 234, 255, 0.3882352941);
+  border: solid 2px #5e5e8f;
+}
+
+.login-form button,
+.signup-form button {
+  border-radius: 0;
+  border: none;
+  height: 100%;
+  min-width: 5rem;
+  width: 100%;
+  background-color: #98156c;
+  color: #fcf8e8;
+}
+
+.signup-form .colorPicker {
+  height: 100%;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.login-form button:hover,
+.signup-form button:hover {
+  background-color: #ae187c;
+}
+
+.signUp-button {
+  text-decoration: none;
+  border-radius: 0;
+  border: none;
+  padding: 0.75rem;
+  background-color: #98156c;
+  color: #fcf8e8;
+}
+
+.signUp-button:hover {
+  background-color: #ae187c;
+}
+
+.welcome_showMessages-button {
+  text-decoration: none;
+  border-radius: 0;
+  border: none;
+  padding: 0.75rem;
+  background-color: #98156c;
+  color: #fcf8e8;
+}
+
 .create_account-container {
   display: flex;
   justify-content: flex-start;
@@ -88,7 +158,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(255, 187, 0);
+  background-color: #f18867;
 }
 
 .signup-form {
@@ -156,22 +226,22 @@ body {
 
 .create_message-form input:focus,
 .create_message-form textarea:focus {
-  border: solid 4px rgb(17, 234, 183);
-  background-color: rgb(17, 234, 183);
+  border: solid 4px #fcf8e8;
+  background-color: #fcf8e8;
 }
 
 .submit_message-btn {
   width: 100%;
   height: 2rem;
   border: none;
-  outline: solid 4px rgb(26, 175, 83);
-  background-color: rgb(26, 175, 83);
+  outline: solid 4px #98156c;
+  background-color: #98156c;
   font-size: 1.5rem;
 }
 
 .submit_message-btn:hover {
-  outline: solid 4px #18a24d;
-  background-color: #18a24d;
+  outline: solid 4px #8b1362;
+  background-color: #8b1362;
 }
 
 .message_board-container,
