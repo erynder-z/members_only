@@ -6,27 +6,31 @@
       <h1>Sign Up</h1>
       <!-- prettier-ignore -->
       <form class="signup-form" action="" method="POST">
-      <label for="first_name">First Name</label>
-      <input name="first_name" placeholder="first name" type="text"
+      <label for="first_name" hidden>First Name</label>
+      <input name="first_name" placeholder="First Name" type="text"
       required="true" value="<% if (typeof user =="undefined") { %><% } else { %><%=user.first_name %><% } %>" />
-      <label for="last_name">Last Name</label>
-      <input name="last_name" placeholder="last name" type="text"
+      <label for="last_name" hidden>Last Name</label>
+      <input name="last_name" placeholder="Last Name" type="text"
       required="true" value="<% if (typeof user =="undefined") { %><% } else { %><%=user.last_name %><% } %>" />
-      <label for="username">Username</label>
-      <input name="username" placeholder="username" type="text"
+      <label for="username" hidden>Username</label>
+      <input name="username" placeholder="Username" type="text"
       required="true" value="<% if (typeof user =="undefined") { %><% } else { %><%=user.username %><% } %>" />
-      <label for="password">Password</label>
-      <input name="password" type="password" />
-      <label for="confirmPassword">Confirm Password</label>
-      <input name="confirmPassword" type="password" />
-      <label for="favcolor">Select your favorite color:</label>
-      <input class="colorPicker" type="color" name="favcolor" value="#1c5361">
+      <label for="password" hidden>Password</label>
+      <input name="password" type="password" placeholder="Password" />
+      <label for="confirmPassword" hidden>Confirm Password</label>
+      <input name="confirmPassword" type="password" placeholder="Confirm password" />
+      <label for="favcolor" class="favcolor">Select your favorite color:</label>
+      <input class="colorPicker" type="color" name="favcolor" value="#FF5900">
       <button>Sign Up</button>
     </form>
-      <% if (typeof errors != "undefined") { %> <% for(const error of errors)
-      {%>
-      <div class="error-msg"><%=error.msg %></div>
-      <% } %> <% } %>
+      <div class="error_message-container">
+        <ul>
+          <% if (typeof errors != "undefined") { %> <% for(const error of
+          errors) {%>
+          <li class="error-msg"><%=error.msg %></li>
+          <% } %> <% } %>
+        </ul>
+      </div>
     </div>
   </body>
 </html>

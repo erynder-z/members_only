@@ -1,8 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+/* $buttonColor: #f69ec4; */
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+a {
+  color: #d4d3d3;
+}
+
+h1 {
+  color: #d4d3d3;
 }
 
 body {
@@ -22,6 +31,7 @@ body {
 .user_avatar {
   height: 2.5rem;
   width: 2.5rem;
+  border: solid 2px #d4d3d3;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -30,7 +40,8 @@ body {
 
 .user_avatar span {
   font-size: 1.5rem;
-  filter: invert(180%);
+  font-weight: bold;
+  mix-blend-mode: difference;
 }
 
 .userpage_username .user_avatar span {
@@ -42,10 +53,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 20vh;
+  height: 15vh;
   padding: 1rem;
-  background-color: #f18867;
-  color: #18182f;
+  background-color: #1e3148;
+  color: #d4d3d3;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .login-container {
@@ -54,43 +68,58 @@ body {
   align-items: center;
   width: 100%;
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 .login-form,
-.signup-form {
+.signup-form,
+.admin-form,
+.create_message-form {
   display: flex;
   height: 2.5rem;
   gap: 1rem;
 }
 
 .login-form input,
-.signup-form input {
+.signup-form input,
+.bouncer-form input,
+.admin-form input,
+.create_message-form input {
   all: unset;
   padding: 0.25rem;
-  border: solid 2px #fcf8e8;
-  color: #5e5e8f;
+  border-bottom: solid 2px #f9dd94;
+  color: #f9dd94;
 }
 
 .login-form input:focus,
-.signup-form input:focus {
-  background-color: rgba(4, 234, 255, 0.3882352941);
-  border: solid 2px #5e5e8f;
+.signup-form input:focus,
+.bouncer-form input:focus,
+.admin-form input:focus,
+.create_message-form input:focus {
+  border-bottom: solid 4px #2f8dff;
 }
 
 .login-form button,
-.signup-form button {
+.signup-form button,
+.bouncer-form button,
+.admin-form button,
+.create_message-form button {
   border-radius: 0;
   border: none;
-  height: 100%;
+  height: 3rem;
   min-width: 5rem;
   width: 100%;
-  background-color: #98156c;
-  color: #fcf8e8;
+  background-color: #f9dd94;
+  color: #0c151d;
+}
+
+.favcolor {
+  color: #d4d3d3;
 }
 
 .signup-form .colorPicker {
-  height: 100%;
-  width: 100%;
+  height: 3rem;
+  width: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -100,8 +129,11 @@ body {
 }
 
 .login-form button:hover,
-.signup-form button:hover {
-  background-color: #ae187c;
+.signup-form button:hover,
+.bouncer-form button:hover,
+.admin-form button:hover,
+.create_message-form button:hover {
+  background-color: #f8d57c;
 }
 
 .signUp-button {
@@ -109,12 +141,12 @@ body {
   border-radius: 0;
   border: none;
   padding: 0.75rem;
-  background-color: #98156c;
-  color: #fcf8e8;
+  background-color: #f9dd94;
+  color: #0c151d;
 }
 
 .signUp-button:hover {
-  background-color: #ae187c;
+  background-color: #f8d57c;
 }
 
 .welcome_showMessages-button {
@@ -122,8 +154,8 @@ body {
   border-radius: 0;
   border: none;
   padding: 0.75rem;
-  background-color: #98156c;
-  color: #fcf8e8;
+  background-color: #f9dd94;
+  color: #0c151d;
 }
 
 .create_account-container {
@@ -143,13 +175,63 @@ body {
   gap: 2rem;
 }
 
+.userInfo-container h1 {
+  width: 30%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  font-size: 1.5rem;
+}
+
+.user-options-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  width: 60%;
+  font-weight: bold;
+}
+
+.user-options-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.user-options-container a:hover {
+  border-bottom: solid 2px #f69ec4;
+}
+
+.logout-btn {
+  width: 10%;
+}
+
+.logout-btn button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  border: none;
+  height: 2rem;
+  width: 6rem;
+  background-color: #f9dd94;
+  color: #0c151d;
+}
+
+.logout-btn button:hover {
+  background-color: #f6ce64;
+}
+
 .welcome-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  background-color: #f18867;
+  height: 85vh;
+  background-color: #1e3148;
 }
 
 .signup-container {
@@ -158,7 +240,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f18867;
+  background-color: #1e3148;
 }
 
 .signup-form {
@@ -166,6 +248,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-content: space-evenly;
   height: 66%;
   gap: 1rem;
 }
@@ -176,7 +259,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(97, 155, 255);
+  background-image: url("../images/bouncer.webp");
+  background-position: center;
+}
+
+.bouncer-container .form-container {
+  background-color: rgba(250, 235, 215, 0.8);
+  height: 60%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bouncer-container .form-container h1 {
+  color: #0c151d;
 }
 
 .bouncer-form {
@@ -184,8 +282,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 66%;
   gap: 1rem;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background-color: #1e3148;
 }
 
 .create_message-container {
@@ -193,8 +299,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  background-color: rgb(177, 88, 255);
+  height: 85vh;
+  background-color: #1e3148;
 }
 
 .create_message-form {
@@ -202,46 +308,48 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 66%;
+  height: 33%;
   width: 33%;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .create_message-form input {
-  all: initial;
+  height: 1.5rem;
   width: 100%;
-  height: 2rem;
-  border: solid 4px white;
-  color: white;
-  font-size: 1.5rem;
 }
 
 .create_message-form textarea {
-  all: initial;
+  all: unset;
+  height: 1.5rem;
   width: 100%;
-  border: solid 4px white;
-  color: white;
-  font-size: 1.5rem;
+  padding: 0.25rem;
+  border-bottom: solid 2px #f9dd94;
+  color: #f9dd94;
+  transition: all 0.2s ease-in;
 }
 
-.create_message-form input:focus,
 .create_message-form textarea:focus {
-  border: solid 4px #fcf8e8;
-  background-color: #fcf8e8;
+  border: solid 2px #2f8dff;
+  height: 5rem;
+  transition: all 0.2s ease-out;
 }
 
 .submit_message-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
   height: 2rem;
   border: none;
-  outline: solid 4px #98156c;
-  background-color: #98156c;
+  outline: solid 4px #f9dd94;
+  background-color: #f9dd94;
   font-size: 1.5rem;
 }
 
 .submit_message-btn:hover {
-  outline: solid 4px #8b1362;
-  background-color: #8b1362;
+  outline: solid 4px #f8d886;
+  background-color: #f8d886;
 }
 
 .message_board-container,
@@ -251,13 +359,13 @@ body {
   justify-content: center;
   align-items: center;
   max-width: 100vw;
-  min-height: 80vh;
-  background-color: #f18867;
+  min-height: 85vh;
+  background-color: #1e3148;
   flex-wrap: wrap;
 }
 
 .message_board-container h1 {
-  color: #18182f;
+  color: #d4d3d3;
 }
 
 .message_board-container ul,
@@ -266,11 +374,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 66%;
   max-width: 100%;
   list-style: none;
   padding: 0;
   gap: 2rem;
-  color: #18182f;
+  color: #d4d3d3;
 }
 
 .message_board-container ul li,
@@ -283,7 +392,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fcf8e8;
+  color: #d4d3d3;
 }
 
 .message_card {
@@ -291,7 +400,7 @@ body {
   min-height: 15rem;
   float: left;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
-  background: #fcf8e8;
+  background: #32557f;
   -webkit-transition: 0.3s all ease;
   transition: 0.15s all ease;
   display: flex;
@@ -305,7 +414,7 @@ body {
   justify-content: space-between;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
-  border-bottom: solid 5px #f18867;
+  border-bottom: solid 5px #d4d3d3;
 }
 
 .card-content {
@@ -334,7 +443,7 @@ body {
 }
 
 .card-body {
-  color: #5e5e8f;
+  color: #f9dd94;
   padding: 0;
   margin: 0;
 }
@@ -359,7 +468,7 @@ body {
 }
 
 .card-option span:hover {
-  color: #98156c;
+  color: #f69ec4;
 }
 
 .userpage_username {
@@ -368,4 +477,9 @@ body {
   align-items: center;
   gap: 1rem;
   font-size: 2rem;
+}
+
+.error_message-container {
+  min-height: 1rem;
+  width: 100%;
 }

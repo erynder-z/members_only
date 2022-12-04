@@ -2,22 +2,29 @@
 <html>
   <%- include("head") %>
   <body>
-    <div class="bouncer-container">
-      <h1>Bouncer</h1>
-      <p>enter password to unlock</p>
-      <form
-        class="bouncer-form"
-        action="/clubhouse/bouncer/become-member"
-        method="POST"
-      >
-        <label for="secretPassword">What's the secret password?</label>
-        <input name="secretPassword" type="password" />
-        <button>Submit</button>
-      </form>
-      <% if (typeof errors != "undefined") { %> <% for(const error of errors)
-      {%>
-      <div class="error-msg"><%=error.msg %></div>
-      <% } %> <% } %>
+    <div class="app-container">
+      <div class="bouncer-container">
+        <div class="form-container">
+          <h1>Become a member of the club</h1>
+          <form
+            class="bouncer-form"
+            action="/clubhouse/bouncer/become-member"
+            method="POST"
+          >
+            <label for="secretPassword">What's the secret password?</label>
+            <input name="secretPassword" type="password" />
+            <button>Submit</button>
+          </form>
+          <div class="error_message-container">
+            <ul>
+              <% if (typeof errors != "undefined") { %> <% for(const error of
+              errors) {%>
+              <li class="error-msg"><%=error.msg %></li>
+              <% } %> <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

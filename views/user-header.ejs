@@ -1,7 +1,12 @@
 <% const userLink = `/clubhouse/user/${user?._id}` %> <% const userColor =
 user?.favorite_color %> <% const style = `background-color:${userColor}` %>
 <%const userInitial = user?.username.charAt(0) %>
-
+<head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+  />
+</head>
 <div class="header-container">
   <% if (user) {%>
   <div class="userInfo-container">
@@ -16,34 +21,50 @@ user?.favorite_color %> <% const style = `background-color:${userColor}` %>
     </h1>
     <div class="user-options-container">
       <% if (user.membership_status === "NEW") { %>
-      <a href="/clubhouse/bouncer">Become a Member</a>
+      <a href="/clubhouse/bouncer">
+        <span class="material-symbols-outlined"> diamond </span> Become a
+        Member</a
+      >
       <% } else { %>
-      <a href="/clubhouse/create_message">Create Message</a>
+      <a href="/clubhouse/create_message">
+        <span class="material-symbols-outlined"> add_comment </span> Create
+        Message
+      </a>
       <% } %>
-      <a href="/clubhouse/message_board">All Messages</a>
-      <a href="<%=userLink%>">My Page</a>
+      <a href="/clubhouse/message_board"
+        ><span class="material-symbols-outlined"> list </span> All Messages</a
+      >
+      <a href="<%=userLink%>"
+        ><span class="material-symbols-outlined"> account_circle </span>My
+        Page</a
+      >
     </div>
-    <form action="/log-out" method="POST">
-      <button>LOG OUT</button>
+    <form action="/log-out" method="POST" class="logout-btn">
+      <button>
+        <span class="material-symbols-outlined"> logout </span> logout
+      </button>
     </form>
   </div>
   <% } else { %>
   <div class="login-container">
     <h1>please log in:</h1>
     <form class="login-form" action="/log-in" method="POST">
+      <label for="username" hidden>Username</label>
       <input name="username" placeholder="enter username" type="text" />
+      <label for="password" hidden>Password</label>
       <input name="password" placeholder="enter password" type="password" />
       <button>Log In</button>
     </form>
   </div>
-  <div class="error_message-container">
-    <% if (typeof message != "undefined") { %>
-    <p><%= message %></p>
-    <% } %>
-  </div>
+
   <div class="create_account-container">
     <h1>don't have an account?</h1>
     <a class="signUp-button" href="/sign-up">Create account</a>
+  </div>
+  <div class="error_message-container">
+    <% if ( typeof message != "undefined") { %>
+    <div><%= message %></div>
+    <% } %>
   </div>
   <%}%>
 </div>

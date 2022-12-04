@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <%- include("head") %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+  />
   <body>
     <div class="app-container">
       <%- include('user-header') %>
@@ -8,19 +12,20 @@
         <h1>Create Message</h1>
         <!-- prettier-ignore -->
         <form class="create_message-form" action="" method="POST">
-          <label for="title">Title</label>
-          <input name="title" type="text" placeholder="Message title" required="true" 
+          <label for="title" hidden>Title</label>
+          <input name="title" type="text" placeholder="Enter message title" required="true" 
           value="<% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_title %><% } %>" />
-          <label for="message">Message</label>
+          <label for="message" hidden>Message</label>
           <textarea
             id="message"
             name="message"
-            placeholder="Some text"
+            placeholder="Enter message"
             required="true"
-            rows="4"
-            cols="50"
+
           ><% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_text%><% } %></textarea>
-          <button class="submit_message-btn">Submit</button>
+          <button class="submit_message-btn">Submit <span class="material-symbols-outlined">
+            send
+            </span></button>
         </form>
         <% if (typeof errors != "undefined") { %> <% for(const error of errors)
         {%>

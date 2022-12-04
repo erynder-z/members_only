@@ -1,26 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
 
-$signupBackground: #f18867;
-$bouncerBackground: rgb(97, 155, 255);
+$signupBackground: #1e3148;
 $createMessageBackground: rgb(177, 88, 255);
 
-$primaryColor: #f18867;
-$backgroundColor: #f18867;
-$textColorBright: #fcf8e8;
-$textColorDark: #18182f;
-$textColorGrey: #5e5e8f;
-$cardBackgroundColor: #fcf8e8;
-$highlightColor: #98156c;
-$inputFormColor: #fcf8e8;
-$inputFormActive: #04eaff63;
-$buttonColor: #98156c;
+$primaryColor: #1e3148;
+$backgroundColor: #1e3148;
+$textColorBright: #d4d3d3;
+$textColorDark: #0c151d;
+$textColorGrey: #f9dd94;
+$cardBackgroundColor: #32557f;
+$highlightColor: #f69ec4;
+$inputFormColor: #f9dd94;
+$inputFormActive: #2f8dff;
+/* $buttonColor: #f69ec4; */
+$buttonColor: #f9dd94;
 
-$headerHeight: 20vh;
+$headerHeight: 15vh;
 
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+a {
+  color: $textColorBright;
+}
+
+h1 {
+  color: $textColorBright;
 }
 
 body {
@@ -53,6 +61,7 @@ body {
 .user_avatar {
   height: 2.5rem;
   width: 2.5rem;
+  border: solid 2px $textColorBright;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -61,7 +70,8 @@ body {
 
 .user_avatar span {
   font-size: 1.5rem;
-  filter: invert(180%);
+  font-weight: bold;
+  mix-blend-mode: difference;
 }
 
 .userpage_username .user_avatar span {
@@ -73,50 +83,68 @@ body {
   height: $headerHeight;
   padding: 1rem;
   background-color: $primaryColor;
-  color: $textColorDark;
+  color: $textColorBright;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .login-container {
   @include flex-container-left();
   width: 100%;
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 .login-form,
-.signup-form {
+.signup-form,
+.admin-form,
+.create_message-form {
   display: flex;
   height: 2.5rem;
   gap: 1rem;
 }
 
 .login-form input,
-.signup-form input {
+.signup-form input,
+.bouncer-form input,
+.admin-form input,
+.create_message-form input {
   all: unset;
   padding: 0.25rem;
-  border: solid 2px $inputFormColor;
+  border-bottom: solid 2px $inputFormColor;
   color: $textColorGrey;
 }
 
 .login-form input:focus,
-.signup-form input:focus {
-  background-color: $inputFormActive;
-  border: solid 2px $textColorGrey;
+.signup-form input:focus,
+.bouncer-form input:focus,
+.admin-form input:focus,
+.create_message-form input:focus {
+  border-bottom: solid 4px $inputFormActive;
 }
 
 .login-form button,
-.signup-form button {
+.signup-form button,
+.bouncer-form button,
+.admin-form button,
+.create_message-form button {
   border-radius: 0;
   border: none;
-  height: 100%;
+  height: 3rem;
   min-width: 5rem;
   width: 100%;
   background-color: $buttonColor;
+  color: $textColorDark;
+}
+
+.favcolor {
   color: $textColorBright;
 }
 
 .signup-form .colorPicker {
-  height: 100%;
-  width: 100%;
+  height: 3rem;
+  width: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -126,8 +154,11 @@ body {
 }
 
 .login-form button:hover,
-.signup-form button:hover {
-  background-color: lighten($color: $buttonColor, $amount: 5%);
+.signup-form button:hover,
+.bouncer-form button:hover,
+.admin-form button:hover,
+.create_message-form button:hover {
+  background-color: darken($color: $buttonColor, $amount: 5%);
 }
 
 .signUp-button {
@@ -136,11 +167,11 @@ body {
   border: none;
   padding: 0.75rem;
   background-color: $buttonColor;
-  color: $textColorBright;
+  color: $textColorDark;
 }
 
 .signUp-button:hover {
-  background-color: lighten($color: $buttonColor, $amount: 5%);
+  background-color: darken($color: $buttonColor, $amount: 5%);
 }
 
 .welcome_showMessages-button {
@@ -149,7 +180,7 @@ body {
   border: none;
   padding: 0.75rem;
   background-color: $buttonColor;
-  color: $textColorBright;
+  color: $textColorDark;
 }
 
 .create_account-container {
@@ -167,6 +198,56 @@ body {
   gap: 2rem;
 }
 
+.userInfo-container h1 {
+  width: 30%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  font-size: 1.5rem;
+}
+
+.user-options-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  width: 60%;
+  font-weight: bold;
+}
+
+.user-options-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.user-options-container a:hover {
+  border-bottom: solid 2px $highlightColor;
+}
+
+.logout-btn {
+  width: 10%;
+}
+
+.logout-btn button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  border: none;
+  height: 2rem;
+  width: 6rem;
+  background-color: $buttonColor;
+  color: $textColorDark;
+}
+
+.logout-btn button:hover {
+  background-color: darken($color: $buttonColor, $amount: 10%);
+}
+
 .welcome-container {
   @include flex-container-column-center();
   height: calc(100vh - $headerHeight);
@@ -181,6 +262,7 @@ body {
 
 .signup-form {
   @include flex-container-column-center();
+  justify-content: space-evenly;
   height: 66%;
   gap: 1rem;
 }
@@ -188,52 +270,74 @@ body {
 .bouncer-container {
   @include flex-container-column-center();
   height: 100vh;
-  background-color: $bouncerBackground;
+  background-image: url('../images/bouncer.webp');
+  background-position: center;
+}
+
+.bouncer-container .form-container {
+  background-color: rgba(250, 235, 215, 0.8);
+  height: 60%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bouncer-container .form-container h1 {
+  color: $textColorDark;
 }
 
 .bouncer-form {
   @include flex-container-column-center();
-  height: 66%;
   gap: 1rem;
+}
+
+.admin-container {
+  @include flex-container-column-center();
+  height: calc(100vh - $headerHeight);
+  background-color: $backgroundColor;
 }
 
 .create_message-container {
   @include flex-container-column-center();
   height: calc(100vh - $headerHeight);
-  background-color: $createMessageBackground;
+  background-color: $backgroundColor;
 }
 
 .create_message-form {
   @include flex-container-column-center();
-  height: 66%;
+  height: 33%;
   width: 33%;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .create_message-form input {
-  all: initial;
+  height: 1.5rem;
   width: 100%;
-  height: 2rem;
-  border: solid 4px white;
-  color: white;
-  font-size: 1.5rem;
 }
 
 .create_message-form textarea {
-  all: initial;
+  all: unset;
+  height: 1.5rem;
   width: 100%;
-  border: solid 4px white;
-  color: white;
-  font-size: 1.5rem;
+  padding: 0.25rem;
+  border-bottom: solid 2px $inputFormColor;
+  color: $textColorGrey;
+  transition: all 0.2s ease-in;
 }
 
-.create_message-form input:focus,
 .create_message-form textarea:focus {
-  border: solid 4px $inputFormColor;
-  background-color: $inputFormColor;
+  border: solid 2px $inputFormActive;
+  height: 5rem;
+  transition: all 0.2s ease-out;
 }
 
 .submit_message-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
   height: 2rem;
   border: none;
@@ -257,17 +361,18 @@ body {
 }
 
 .message_board-container h1 {
-  color: $textColorDark;
+  color: $textColorBright;
 }
 
 .message_board-container ul,
 .userpage-container ul {
   @include flex-container-column-center();
+  width: 66%;
   max-width: 100%;
   list-style: none;
   padding: 0;
   gap: 2rem;
-  color: $textColorDark;
+  color: $textColorBright;
 }
 
 .message_board-container ul li,
@@ -299,7 +404,7 @@ body {
   justify-content: space-between;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
-  border-bottom: solid 5px $primaryColor;
+  border-bottom: solid 5px $textColorBright;
 }
 
 .card-content {
@@ -361,4 +466,9 @@ body {
   align-items: center;
   gap: 1rem;
   font-size: 2rem;
+}
+
+.error_message-container {
+  min-height: 1rem;
+  width: 100%;
 }
