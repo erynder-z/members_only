@@ -39,11 +39,12 @@ exports.create_message_post = [
   (req, res, next) => {
     const errors = validationResult(req);
 
+    const user = req.user;
     const msg = new Message({
       msg_title: req.body.title,
       msg_text: req.body.message,
       msg_timestamp: Date.now(),
-      msg_author: req.user._id,
+      msg_author: user._id,
     });
 
     if (!errors.isEmpty()) {
