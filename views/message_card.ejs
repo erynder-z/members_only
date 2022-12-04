@@ -1,23 +1,25 @@
 <% const userLink = `user/${message.msg_author._id}` %> <% const userColor =
-message.msg_author.favorite_color %> <% const style =
+message.msg_author.favorite_color %> <% const avatarStyle =
 `background-color:${userColor}` %> <%const userInitial =
-message.msg_author.username.charAt(0) %>
+message.msg_author.username?.charAt(0) %> <% const cardTopStyle =
+user?.membership_status === "MEMBER" ? `border-bottom:solid 5px ${userColor}` :
+null %>
 
 <div class="message_card">
   <div class="card-content">
-    <div class="card-top">
+    <div class="card-top" style="<%=cardTopStyle %>">
       <% if (user?.membership_status === "MEMBER") { %>
 
       <div class="card-author">
-        <div class="user_avatar" style="<%=style %>">
+        <div class="user_avatar" style="<%=avatarStyle %>">
           <span><%=userInitial %></span>
         </div>
         <a href="<%=userLink%>"> <%=message.msg_author.username%> </a>
       </div>
       <p class="card-timestamp"><%=message.timestamp_formatted %></p>
       <% } else { %>
-      <p class="card-timestamp">Timestamp hidden</p>
       <p class="card-author">Author hidden</p>
+      <p class="card-timestamp">Timestamp hidden</p>
       <% } %>
     </div>
     <h2 class="card-title"><%=message.msg_title%></h2>

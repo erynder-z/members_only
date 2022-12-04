@@ -12,7 +12,9 @@ exports.user_page = (req, res) => {
           User.findById(req.params.id).exec(callback);
         },
         users_messages(callback) {
-          Message.find({ msg_author: req.params.id }).exec(callback);
+          Message.find({ msg_author: req.params.id })
+            .populate('msg_author')
+            .exec(callback);
         },
       },
       (err, results) => {
@@ -24,7 +26,6 @@ exports.user_page = (req, res) => {
           err.status = 404;
           return next(err);
         }
-
         res.render('userpage', {
           user: req.user,
           shown_user: results.shown_user,

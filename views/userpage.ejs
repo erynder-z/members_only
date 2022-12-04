@@ -1,7 +1,7 @@
 <% const isValidUser = () => { if((shown_user.id == user._id) &&
 user.membership_status === "MEMBER" && !user.admin) { return true } } %> <%
 const userColor = shown_user?.favorite_color %> <% const style =
-`background-color:${userColor}` %> <%const userInitial =
+`background-color: ${userColor}` %> <%const userInitial =
 shown_user?.username.charAt(0) %>
 
 <!DOCTYPE html>
@@ -32,11 +32,9 @@ shown_user?.username.charAt(0) %>
           <% } %>
         </div>
         <ul>
-          <% if(users_messages.length > 0){ %> <% for(const users_message of
+          <% if(users_messages.length > 0){ %> <% for(const message of
           users_messages) {%>
-          <li>
-            <%- include('message_card', {user, message: users_message}) %>
-          </li>
+          <li><%- include('message_card', {user, message}) %></li>
           <% } %> <% } else{ %>
           <p>User has no messages</p>
           <% } %>
