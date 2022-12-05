@@ -26,6 +26,7 @@ null %>
     <div class="card-body"><%=message.msg_text%></div>
     <% if (user?.membership_status === "MEMBER") { %> <% } %>
   </div>
+  <% if (user?.membership_status === "MEMBER") { %>
   <div class="card-options-container">
     <form method="post">
       <button class="card-option" formaction="<%= "/clubhouse/message/"+
@@ -48,4 +49,7 @@ null %>
       ><%=message.msg_reactions.very_dissatisfied %>
     </form>
   </div>
+  <%} else { %>
+  <p class="card-options-hidden">Message reactions hidden</p>
+  <% } %>
 </div>
