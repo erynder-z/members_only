@@ -10,16 +10,25 @@
       <%- include('user-header') %>
       <div class="admin-container">
         <h1>
-          Become admin <span class="material-symbols-outlined"> key </span>
+          Gain admin privileges
+          <span class="material-symbols-outlined"> key </span>
         </h1>
         <form class="admin-form" action="/clubhouse/admin" method="POST">
+          <button id="go-back" class="backBtn" type="button">
+            <span class="material-symbols-outlined"> arrow_back </span>Back
+          </button>
           <label for="adminPassword" hidden>Enter admin password</label>
           <input
             name="adminPassword"
             type="password"
             placeholder="Enter admin password"
           />
-          <button>Submit</button>
+          <button class="adminBtn">
+            Submit
+            <span class="material-symbols-outlined">
+              subdirectory_arrow_right
+            </span>
+          </button>
         </form>
         <div class="error_message-container">
           <ul>
@@ -31,5 +40,6 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="/javascripts/ui_scripts.js"></script>
   </body>
 </html>

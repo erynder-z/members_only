@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <%- include("head") %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+  />
   <body>
     <div class="app-container">
       <div class="bouncer-container">
@@ -13,7 +17,14 @@
           >
             <label for="secretPassword">What's the secret password?</label>
             <input name="secretPassword" type="password" />
-            <button>Submit</button>
+            <button class="becomeMemberBtn">
+              Submit<span class="material-symbols-outlined">
+                subdirectory_arrow_right
+              </span>
+            </button>
+            <button id="go-back" class="backBtn" type="button">
+              <span class="material-symbols-outlined"> arrow_back </span>Back
+            </button>
           </form>
           <div class="error_message-container">
             <ul>
@@ -26,5 +37,6 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="/javascripts/ui_scripts.js"></script>
   </body>
 </html>
