@@ -12,17 +12,22 @@
         <h1>Create Message</h1>
         <!-- prettier-ignore -->
         <form class="create_message-form" action="" method="POST">
-          <label for="title" hidden>Title</label>
-          <input name="title" type="text" placeholder="Enter message title" required="true" 
-          value="<% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_title %><% } %>" />
-          <label for="message" hidden>Message</label>
+          <div class="floating-label-group">
+            <input name="title" class="form-control" autocomplete="off" autofocus required type="text" 
+              value="<% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_title %><% } %>" />
+              <label for="title" class="floating-label">Title</label>
+          </div>
+          <div class="floating-label-group">
+  
           <textarea
             id="message"
             name="message"
-            placeholder="Enter message"
-            required="true"
+           class="form-control" autocomplete="off" autofocus required 
 
-          ><% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_text%><% } %></textarea>
+          ><% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_text%><% } %>
+          </textarea>
+          <label for="message" class="floating-label">Message</label>
+        </div>
           <button class="submit_message-btn">Submit <span class="material-symbols-outlined">
             send
             </span></button>

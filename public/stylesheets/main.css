@@ -53,7 +53,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 15vh;
+  height: 18vh;
   padding: 1rem;
   background-color: #1e3148;
   color: #d4d3d3;
@@ -76,7 +76,7 @@ body {
 .admin-form,
 .create_message-form {
   display: flex;
-  height: 2.5rem;
+  /*   height: 2.5rem; */
   gap: 1rem;
 }
 
@@ -111,6 +111,31 @@ body {
   width: 100%;
   background-color: #f9dd94;
   color: #0c151d;
+}
+
+.backBtn,
+.signUpBtn,
+.becomeMemberBtn,
+.adminBtn {
+  border-radius: 0;
+  border: none;
+  height: 3rem;
+  min-width: 5rem;
+  width: 100%;
+  background-color: #f9dd94;
+  color: #0c151d;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.backBtn:hover,
+.signUpBtn:hover,
+.becomeMemberBtn:hover,
+.adminBtn:hover {
+  background-color: #f8d57c;
 }
 
 .favcolor {
@@ -184,6 +209,20 @@ body {
   font-size: 1.5rem;
 }
 
+.user_details-container {
+  margin: 1rem 0;
+}
+
+.user_details-container * {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin_link {
+  display: flex;
+  align-items: center;
+}
+
 .user-options-container {
   display: flex;
   justify-content: space-around;
@@ -230,8 +269,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85vh;
-  background-color: #1e3148;
+  height: 82vh;
+  background-image: url("../images/bouncer.webp");
+  background-position: center;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0.2rem 0.2rem #1e3148);
 }
 
 .signup-container {
@@ -288,18 +336,16 @@ body {
 .admin-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 85vh;
+  height: 82vh;
   background-color: #1e3148;
 }
 
 .create_message-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 85vh;
+  height: 82vh;
   background-color: #1e3148;
 }
 
@@ -359,7 +405,7 @@ body {
   justify-content: center;
   align-items: center;
   max-width: 100vw;
-  min-height: 85vh;
+  min-height: 82vh;
   background-color: #1e3148;
   flex-wrap: wrap;
 }
@@ -456,6 +502,12 @@ body {
   font-size: 1.5rem;
 }
 
+.card-options-hidden {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
 .card-option {
   all: unset;
   display: flex;
@@ -465,12 +517,22 @@ body {
 
 .card-option span {
   font-size: 2.5rem;
+  cursor: pointer;
 }
 
 .card-option span:hover {
   color: #f69ec4;
+  animation: spin-animation 0.5s;
 }
 
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
 .userpage_username {
   display: flex;
   justify-content: center;
@@ -482,4 +544,30 @@ body {
 .error_message-container {
   min-height: 1rem;
   width: 100%;
+  color: #d4d3d3;
+}
+
+.floating-label-group {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.floating-label-group .floating-label {
+  font-size: 1rem;
+  color: #d4d3d3;
+  position: absolute;
+  pointer-events: none;
+  top: 5px;
+  left: 12px;
+  transition: all 0.1s ease;
+}
+.floating-label-group input:focus ~ .floating-label,
+.floating-label-group input:not(:focus):valid ~ .floating-label {
+  top: -15px;
+  bottom: 0px;
+  left: 0px;
+  font-size: 0.75rem;
+  opacity: 1;
+  color: #f9dd94;
 }

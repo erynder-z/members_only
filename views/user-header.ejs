@@ -49,10 +49,26 @@ user?.favorite_color %> <% const style = `background-color:${userColor}` %>
   <div class="login-container">
     <h1>please log in:</h1>
     <form class="login-form" action="/log-in" method="POST">
-      <label for="username" hidden>Username</label>
-      <input name="username" placeholder="enter username" type="text" />
-      <label for="password" hidden>Password</label>
-      <input name="password" placeholder="enter password" type="password" />
+      <div class="floating-label-group">
+        <input
+          name="username"
+          class="form-control"
+          autofocus
+          required
+          type="text"
+        />
+        <label for="username" class="floating-label">Username</label>
+      </div>
+      <div class="floating-label-group">
+        <input
+          name="password"
+          class="form-control"
+          autofocus
+          required
+          type="password"
+        />
+        <label for="password" class="floating-label">Password</label>
+      </div>
       <button>Log In</button>
     </form>
   </div>

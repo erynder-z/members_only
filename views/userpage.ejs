@@ -22,14 +22,28 @@ shown_user?.username.charAt(0) %>
             </div>
             <%=shown_user.username %>
           </div>
-          <p><%=shown_user.first_name%> <%=shown_user.last_name%></p>
-          <p>joined: <%=shown_user.joined_formatted %></p>
-          <p>status: <%= shown_user.membership_status %></p>
-          <p>admin: <%= shown_user.admin %></p>
+          <div class="user_details-container">
+            <p>
+              <span>NAME:</span><%=shown_user.first_name%>
+              <%=shown_user.last_name%>
+            </p>
+            <p><span>JOINED:</span> <%=shown_user.joined_formatted %></p>
+            <p>
+              <span>STATUS:</span> <%= shown_user.membership_status.charAt(0) +
+              shown_user.membership_status.substring(1).toLowerCase(); %>
+            </p>
+            <p><span>ADMIN:</span> <%= shown_user.admin %></p>
 
-          <% if(isValidUser()) { %>
-          <a href="/clubhouse/admin">become admin</a>
-          <% } %>
+            <% if(isValidUser()) { %>
+            <div>
+              <a href="/clubhouse/admin" class="admin_link"
+                >gain admin privileges</a
+              ><span class="material-symbols-outlined">
+                admin_panel_settings
+              </span>
+            </div>
+            <% } %>
+          </div>
         </div>
         <ul>
           <% if(users_messages.length > 0){ %> <% for(const message of
