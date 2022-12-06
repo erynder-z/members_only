@@ -1,6 +1,11 @@
 const { body, validationResult } = require('express-validator');
 const async = require('async');
 const Message = require('../models/message');
+const Filter = require('bad-words');
+
+const filter = new Filter();
+const badwordsArray = require('badwords/array');
+filter.addWords(...badwordsArray);
 
 exports.message_list_get = (req, res, next) => {
   Message.find({})
@@ -41,8 +46,8 @@ exports.create_message_post = [
 
     const user = req.user;
     const msg = new Message({
-      msg_title: req.body.title,
-      msg_text: req.body.message,
+      msg_title: filter.clean(req.body.title),
+      msg_text: filter.clean(req.body.message),
       msg_timestamp: Date.now(),
       msg_author: user._id,
     });
