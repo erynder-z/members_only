@@ -6,11 +6,15 @@ exports.index = (req, res) => {
   res.render('index', { user: req.user, message: req.flash('error') });
 };
 
-exports.login_post = passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/',
-  failureFlash: true,
-});
+exports.login_post = [
+  passport.authenticate('local', {
+    failureRedirect: '/',
+    failureFlash: true,
+  }),
+  function (req, res) {
+    res.redirect('/clubhouse/user/' + req.user._id);
+  },
+];
 
 exports.logout_post = (req, res, next) => {
   req.logout(function (err) {
