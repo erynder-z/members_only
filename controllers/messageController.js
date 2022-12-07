@@ -107,7 +107,7 @@ exports.option_very_satisfied_post = (req, res) => {
             el._id.equals(req.user._id)
           )
         ) {
-          res.redirect('/clubhouse/message_board');
+          res.status(204).send({ error: 'test' });
         } else {
           Message.findByIdAndUpdate(
             req.params.id,
@@ -152,7 +152,7 @@ exports.option_satisfied_post = (req, res) => {
             el._id.equals(req.user._id)
           )
         ) {
-          res.redirect('/clubhouse/message_board');
+          res.status(204).send({ error: 'test' });
         } else {
           Message.findByIdAndUpdate(
             req.params.id,
@@ -197,7 +197,7 @@ exports.option_neutral_post = (req, res) => {
             el._id.equals(req.user._id)
           )
         ) {
-          res.redirect('/clubhouse/message_board');
+          res.status(204).send({ error: 'test' });
         } else {
           Message.findByIdAndUpdate(
             req.params.id,
@@ -242,7 +242,7 @@ exports.option_dissatisfied_post = (req, res) => {
             el._id.equals(req.user._id)
           )
         ) {
-          res.redirect('/clubhouse/message_board');
+          res.status(204).send({ error: 'test' });
         } else {
           Message.findByIdAndUpdate(
             req.params.id,
@@ -287,7 +287,7 @@ exports.option_very_dissatisfied_post = (req, res) => {
             el._id.equals(req.user._id)
           )
         ) {
-          res.redirect('/clubhouse/message_board');
+          res.status(204).send({ error: 'test' });
         } else {
           Message.findByIdAndUpdate(
             req.params.id,
