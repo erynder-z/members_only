@@ -563,7 +563,8 @@ body {
   transition: all 0.1s ease;
 }
 .floating-label-group input:focus ~ .floating-label,
-.floating-label-group input:not(:focus):valid ~ .floating-label {
+.floating-label-group input:not(:focus):valid ~ .floating-label,
+.floating-label-group textarea:focus ~ .floating-label {
   top: -15px;
   bottom: 0px;
   left: 0px;

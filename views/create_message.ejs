@@ -18,14 +18,7 @@
               <label for="title" class="floating-label">Title</label>
           </div>
           <div class="floating-label-group">
-  
-          <textarea
-            id="message"
-            name="message"
-           class="form-control" autocomplete="off" autofocus required 
-
-          ><% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_text%><% } %>
-          </textarea>
+          <textarea id="message" name="message" class="form-control" autocomplete="off"autofocus required ><% if (typeof msg == "undefined") { %><% } else { %><%=msg.msg_text%><% } %></textarea>
           <label for="message" class="floating-label">Message</label>
         </div>
           <button class="submit_message-btn">Submit <span class="material-symbols-outlined">
