@@ -46,7 +46,18 @@ null %>
       %>" >
       <span class="material-symbols-outlined">
         sentiment_very_dissatisfied </span
-      ><%=message.msg_reactions.very_dissatisfied %>
+      ><%=message.msg_reactions.very_dissatisfied %> <% if (user?.admin) { %>
+      <input
+        id="messageid"
+        class="form-control"
+        type="hidden"
+        name="messageid"
+        required="true"
+        value="<%= message._id %>"
+      />
+      <button class="card-option-admin" formaction="<%= "delete_message/"+
+      message._id %>">
+      <span class="material-symbols-outlined"> delete </span> <% }%>
     </form>
   </div>
   <%} else { %>

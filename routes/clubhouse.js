@@ -26,6 +26,8 @@ router.get('/create_message', message_controller.create_message_get);
 
 router.post('/create_message', message_controller.create_message_post);
 
+router.post('/delete_message/:id', message_controller.delete_message_post);
+
 router.post(
   '/message/:id/very_satisfied',
   message_controller.option_very_satisfied_post

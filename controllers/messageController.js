@@ -70,6 +70,20 @@ exports.create_message_post = [
   },
 ];
 
+exports.delete_message_post = (req, res) => {
+  Message.findById(req.params.id).exec(function (err, result) {
+    if (err) {
+      return next(err);
+    }
+    Message.findByIdAndRemove(req.body.messageid, (err) => {
+      if (err) {
+        return next(err);
+      }
+      res.redirect('/clubhouse/message_board');
+    });
+  });
+};
+
 exports.option_very_satisfied_post = (req, res) => {
   if (req.user) {
     async.parallel(
