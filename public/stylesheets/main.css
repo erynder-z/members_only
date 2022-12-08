@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
-/* $buttonColor: #f69ec4; */
 *,
 *:before,
 *:after {
@@ -8,6 +7,7 @@
 
 a {
   color: #d4d3d3;
+  text-decoration: none;
 }
 
 h1 {
@@ -115,6 +115,7 @@ body {
   width: 100%;
   background-color: #f9dd94;
   color: #0c151d;
+  cursor: pointer;
 }
 
 .backBtn,
@@ -262,6 +263,7 @@ body {
   width: 6rem;
   background-color: #f9dd94;
   color: #0c151d;
+  cursor: pointer;
 }
 
 .logout-btn button:hover {
@@ -283,6 +285,7 @@ body {
   background: inherit;
   -webkit-background-clip: text;
   background-clip: text;
+  margin-top: auto;
   filter: drop-shadow(0.2rem 0.2rem #1e3148);
 }
 
@@ -585,6 +588,11 @@ body {
   font-size: 0.75rem;
   opacity: 1;
   color: #f9dd94;
+}
+
+footer {
+  margin-top: auto;
+  color: #d4d3d3;
 }
 
 @media only screen and (max-width: 599px) {

@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
 
-$signupBackground: #1e3148;
-
 $primaryColor: #1e3148;
 $backgroundColor: #1e3148;
 $textColorBright: #d4d3d3;
@@ -11,7 +9,6 @@ $cardBackgroundColor: #32557f;
 $highlightColor: #f69ec4;
 $inputFormColor: #f9dd94;
 $inputFormActive: hsl(213, 100%, 59%);
-/* $buttonColor: #f69ec4; */
 $buttonColor: #f9dd94;
 
 $headerHeight: 18vh;
@@ -24,6 +21,7 @@ $headerHeight: 18vh;
 
 a {
   color: $textColorBright;
+  text-decoration: none;
 }
 
 h1 {
@@ -146,6 +144,7 @@ body {
   width: 100%;
   background-color: $buttonColor;
   color: $textColorDark;
+  cursor: pointer;
 }
 
 .backBtn,
@@ -291,6 +290,7 @@ body {
   width: 6rem;
   background-color: $buttonColor;
   color: $textColorDark;
+  cursor: pointer;
 }
 
 .logout-btn button:hover {
@@ -309,6 +309,7 @@ body {
   background: inherit;
   -webkit-background-clip: text;
   background-clip: text;
+  margin-top: auto;
 
   filter: drop-shadow(0.2rem 0.2rem $primaryColor);
 }
@@ -316,7 +317,7 @@ body {
 .signup-container {
   @include flex-container-column-center();
   height: 100vh;
-  background-color: $signupBackground;
+  background-color: $primaryColor;
 }
 
 .signup-form {
@@ -586,6 +587,11 @@ body {
     opacity: 1;
     color: $textColorYellow;
   }
+}
+
+footer {
+  margin-top: auto;
+  color: $textColorBright;
 }
 
 @media only screen and (max-width: 599px) {
