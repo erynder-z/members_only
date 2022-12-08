@@ -10,7 +10,7 @@ filter.addWords(...badwordsArray);
 exports.message_list_get = (req, res, next) => {
   Message.find({})
     .populate('msg_author')
-    .sort({ msg_timestamp: 1 })
+    .sort({ msg_timestamp: -1 })
     .exec(function (err, list_messages) {
       if (err) {
         return next(err);

@@ -14,6 +14,7 @@ exports.user_page = (req, res) => {
         users_messages(callback) {
           Message.find({ msg_author: req.params.id })
             .populate('msg_author')
+            .sort({ msg_timestamp: -1 })
             .exec(callback);
         },
       },
