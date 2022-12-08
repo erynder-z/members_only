@@ -9,8 +9,8 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const initializePassport = require('./passport-config');
 
-/* const compression = require('compression');
-const helmet = require('helmet'); */
+const compression = require('compression');
+const helmet = require('helmet');
 
 const indexRouter = require('./routes/index');
 const clubhouseRouter = require('./routes/clubhouse');
@@ -18,7 +18,7 @@ const clubhouseRouter = require('./routes/clubhouse');
 const app = express();
 
 const mongoose = require('mongoose');
-const dev_db_url = `${env.database_url}`;
+/* const dev_db_url = `${env.database_url}`; */
 /* const mongoDB = process.env.MONGODB_URI || dev_db_url; */
 const mongoDB = `${env.DATABASE_URL}`;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -29,13 +29,13 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-/* app.use(helmet()); */
+app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-/* app.use(compression()); */
+app.use(compression());
 
 initializePassport(passport);
 
