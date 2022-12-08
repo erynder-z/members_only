@@ -24,8 +24,8 @@ body {
 
 .user-header-container {
   display: flex;
+  align-items: center;
   gap: 1rem;
-  padding-top: 1rem;
 }
 
 .user_avatar {
@@ -91,12 +91,16 @@ body {
   color: #f9dd94;
 }
 
+.bouncer-form input {
+  color: #0c151d;
+}
+
 .login-form input:focus,
 .signup-form input:focus,
 .bouncer-form input:focus,
 .admin-form input:focus,
 .create_message-form input:focus {
-  border-bottom: solid 4px #2f8dff;
+  border-bottom: solid 4px hsl(213deg, 100%, 59%);
 }
 
 .login-form button,
@@ -107,7 +111,7 @@ body {
   border-radius: 0;
   border: none;
   height: 3rem;
-  min-width: 5rem;
+  min-width: 7rem;
   width: 100%;
   background-color: #f9dd94;
   color: #0c151d;
@@ -375,7 +379,7 @@ body {
 }
 
 .create_message-form textarea:focus {
-  border: solid 2px #2f8dff;
+  border: solid 2px hsl(213deg, 100%, 59%);
   height: 5rem;
   transition: all 0.2s ease-out;
 }
@@ -581,4 +585,68 @@ body {
   font-size: 0.75rem;
   opacity: 1;
   color: #f9dd94;
+}
+
+@media only screen and (max-width: 599px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  .header-container {
+    height: auto;
+    padding: 0;
+  }
+  .login-container,
+  .login-form {
+    flex-direction: column;
+    margin: 0;
+    width: 90%;
+    gap: 0;
+  }
+  .login-form input {
+    width: 100%;
+  }
+  .create_account-container {
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  .create_account-container h1 {
+    font-size: 1rem;
+  }
+  .userInfo-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .user-options-container {
+    width: 95%;
+  }
+  .message_board-container ul,
+  .userpage-container ul {
+    width: 95%;
+  }
+  .message_board-container ul li,
+  .userpage-container ul li {
+    width: 100%;
+  }
+  .userInfo-container h1 {
+    margin: 0;
+    width: 95%;
+  }
+  .logout-btn {
+    width: unset;
+  }
+  .card-options-container form {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .create_message-form {
+    width: 90%;
+  }
+  .admin-form {
+    flex-direction: column;
+  }
+  .admin-form input {
+    height: 2rem;
+  }
 }
