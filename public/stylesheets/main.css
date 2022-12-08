@@ -387,6 +387,14 @@ body {
   transition: all 0.2s ease-out;
 }
 
+.create_message-form textarea:not(:required:invalid) + label {
+  top: -15px;
+  bottom: 0px;
+  left: 0px;
+  font-size: 0.75rem;
+  opacity: 1;
+}
+
 .submit_message-btn {
   display: flex;
   justify-content: center;
