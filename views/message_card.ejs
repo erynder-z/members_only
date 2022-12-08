@@ -1,5 +1,5 @@
-<% const userLink = `user/${message.msg_author._id}` %> <% const userColor =
-message.msg_author.favorite_color %> <% const avatarStyle =
+<% const userLink = `/clubhouse/user/${message.msg_author._id}` %> <% const
+userColor = message.msg_author.favorite_color %> <% const avatarStyle =
 `background-color:${userColor}` %> <%const userInitial =
 message.msg_author.username?.charAt(0) %> <% const cardTopStyle =
 user?.membership_status === "MEMBER" ? `border-bottom:solid 5px ${userColor}` :
