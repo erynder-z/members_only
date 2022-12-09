@@ -65,7 +65,7 @@ exports.create_message_post = [
         return next(err);
       }
 
-      res.redirect('/');
+      res.redirect('/clubhouse/message_board');
     });
   },
 ];
