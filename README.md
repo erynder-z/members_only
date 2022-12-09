@@ -36,3 +36,5 @@ Please note that profanity will automatically be censored!
 - SCSS
 
 ### [LIVE] https://members-only-q2hi.onrender.com
+
+Join the club with the secret password: "theodinproject"
