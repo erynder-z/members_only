@@ -23,6 +23,8 @@ The following membership statuses are available:
 
 - In addition to being a full member, admins are able to delete any message.
 
+Please note that profanity will automatically be censored!
+
 ## Built with
 
 - Node.js
@@ -33,4 +35,4 @@ The following membership statuses are available:
 - EJS
 - SCSS
 
-### [LIVE] https://members-only.onrender.com/
+### [LIVE] https://members-only-q2hi.onrender.com
